@@ -2,26 +2,26 @@ import React, { useState } from 'react';
 import './Searchbar.css';
 
 export default function Searchbar({ onSubmit }) {
-  const [keyWord, setKeyWord] = useState('');
+  const [querry, setQuerry] = useState('');
 
   const handleChange = event => {
-    setKeyWord(event.target.value);
+    setQuerry(event.target.value);
   };
 
   const handleSubmit = event => {
     event.preventDefault();
 
-    if (keyWord.trim() === '') {
+    if (querry.trim() === '') {
       alert('Введите ключевое слово');
       return;
     }
 
-    onSubmit(keyWord);
+    onSubmit(querry);
     resetForm();
   };
 
   const resetForm = () => {
-    setKeyWord('');
+    setQuerry('');
   };
 
   return (
@@ -39,7 +39,7 @@ export default function Searchbar({ onSubmit }) {
             autoFocus
             placeholder="Search images and photos"
             name="keyWord"
-            value={keyWord}
+            value={querry}
             onChange={handleChange}
           />
         </form>
